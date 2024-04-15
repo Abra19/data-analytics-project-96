@@ -59,8 +59,8 @@ with all_sources as (
 )
 
 select
-    date(campaign_date) as campaign_date,
     utm_source,
+    date(campaign_date) as campaign_date,
     sum(daily_spent) as daily_cost
 from all_sources
 where utm_medium in ('cpc', 'cpm', 'cpa', 'youtube', 'cpp', 'tg', 'social')

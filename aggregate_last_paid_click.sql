@@ -1,4 +1,4 @@
- with leads_visitors as (
+with leads_visitors as (
     select
         s.visitor_id,
         s.source as utm_source,
@@ -57,11 +57,11 @@ partners as (
 
 select
     l.visit_date,
-    count(*) as visitors_count,
     l.utm_source,
     l.utm_medium,
     l.utm_campaign,
     p.total_cost,
+    count(*) as visitors_count,
     count(*) filter (where l.lead_id is not null) as leads_count,
     count(*) filter (where l.status_id = 142) as purchases_count,
     sum(l.amount) filter (where l.status_id = 142) as revenue
